@@ -1,0 +1,39 @@
+# Dependências
+node_modules
+
+# Build
+dist
+
+# Controle de versão
+.git
+.gitignore
+
+# Docker
+Dockerfile
+.dockerignore
+
+# Testes
+coverage
+jest.config.*
+
+# Editor / IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Ambiente
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+README.md
