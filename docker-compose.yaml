@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+  postgres:
+    image: postgres:15.17-alpine3.23
+    container_name: postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=example
+    networks:
+      - nest-example-net
+    volumes:
+      - db:/var/lib/postgres
+
+  api:
+    container_name: api
+    build:
+      context: .
+    ports:
+      - 3000:3000
+    depends_on: #nao garante 100 pois olha somente para o startup do app, nao se ele esta ready
+      - postgres
+    networks:
+      - nest-example-net
+
+networks:
+  nest-example-net:
+    driver: bridge
+
+volumes:
+  db:
